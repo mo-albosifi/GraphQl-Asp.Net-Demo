@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GraphQl_HotChocolate_Demo.DataBase;
 using GraphQl_HotChocolate_Demo.GraphQlServices;
 using GraphQl_HotChocolate_Demo.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 
 namespace GraphQl_HotChocolate_Demo
 {
@@ -47,7 +39,7 @@ namespace GraphQl_HotChocolate_Demo
                 .AddMutationType<BooksMutation>()
                 .AddSubscriptionType<BookSubscription>();            
 
-            services.AddScoped<BooksRepo, BooksRepo>();
+            services.AddScoped<IBookRepo, BooksRepo>();
 
             
             services.AddCors(option => {
@@ -85,6 +77,7 @@ namespace GraphQl_HotChocolate_Demo
                 .UseRouting()
                 .UseEndpoints(endpoints =>
                 {
+                    
                     endpoints.MapGraphQL();
                 }); 
         }

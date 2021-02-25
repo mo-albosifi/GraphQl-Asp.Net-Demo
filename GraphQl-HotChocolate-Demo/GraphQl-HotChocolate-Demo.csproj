@@ -6,7 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="GraphQL.Upload.AspNetCore" Version="1.0.0" />
         <PackageReference Include="HotChocolate.AspNetCore" Version="11.1.0-preview.61" />
+        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.1.0-preview.61" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0-preview.1.21102.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0-preview.1.21102.2">
           <PrivateAssets>all</PrivateAssets>
